@@ -1,0 +1,49 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.msstore.poetichouse">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+      android:name=".MainApplication"
+      android:allowBackup="false"
+      android:hardwareAccelerated="true"
+      android:largeHeap="true"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:theme="@style/AppTheme"
+      android:supportsRtl="true">
+        <activity android:name=".SplashActivity"
+                android:label="@string/app_name"
+                android:exported="true"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+                android:launchMode="singleTask"
+                android:windowSoftInputMode="adjustResize"
+                android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" /> 
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:exported="true"/>
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+    <meta-data
+        android:name="com.facebook.accountkit.ApplicationName"
+        android:value="@string/app_name" />
+    <meta-data
+        android:name="com.facebook.accountkit.ClientToken"
+        android:value="@string/ak_client_token" />
+
+<!--        Admob-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2101182411274198/4100506392"/>
+    </application>
+</manifest>

@@ -1,0 +1,25 @@
+{
+  "WooCommerce": {
+    "url": "https://mstore.io",
+    "consumerKey": "ck_b7594bc4391db4b56c635fe6da1072a53ca4535a",
+    "consumerSecret": "cs_980b9edb120e15bd2a8b668cacc734f7eca0ba40"
+  },
+  "HorizonLayout": [
+    {
+      "layout": "circleCategory" 
+    },
+
+    {
+      "layout": "banner",
+      "tag": 273
+    }
+
+  ],
+
+  "VerticalLayout": {
+    "name": "Recents",
+    "layout": "simple"
+  },
+  
+  "MainColor": "#3F51B5"
+}

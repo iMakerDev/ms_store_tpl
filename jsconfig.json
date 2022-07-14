@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "experimentalDecorators": true,
+      "baseUrl": "./src/",
+      "paths": {
+        "@common": ["common"],
+        "@containers": ["containers"],
+        "@components": ["components"],
+        "@navigation": ["navigation"],
+        "@images": ["images"],
+        "@services": ["services"],
+        "@selectors": ["selectors"],
+        "@store": ["store"],
+        "@utils": ["utils"],
+        "@expo": ["Expo"],
+        "@redux": ["redux"],
+
+        "@app/*": ["*"]
+      }
+    },
+    "exclude": ["node_modules"]
+  }

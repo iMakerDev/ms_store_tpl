@@ -1,0 +1,48 @@
+{
+  "WooCommerce": {
+    "url": "https://mstore.io",
+    "consumerKey": "ck_b7594bc4391db4b56c635fe6da1072a53ca4535a",
+    "consumerSecret": "cs_980b9edb120e15bd2a8b668cacc734f7eca0ba40"
+  },
+  "HorizonLayout": [
+ 
+    {
+      "layout": "circleCategory" 
+    },
+
+    {
+      "layout": "bannerHigh",
+      "tag": 273
+    },
+
+
+    {
+      "imageBanner": "http://s3-ap-southeast-1.amazonaws.com/mstore-bucket.io/wp-content/uploads/2019/02/25142145/woman-large.png",
+      "layout": "bannerImage",
+      "height": 118,
+      "category": 22
+    },
+    
+    {
+      "imageBanner": "http://s3-ap-southeast-1.amazonaws.com/mstore-bucket.io/wp-content/uploads/2019/02/25142102/MAN-large.png",
+      "layout": "bannerImage",
+      "height": 118,
+      "category": 18
+    },
+  
+    {
+      "name": "featureProducts",
+      "image": "",
+      "layout": "threeColumn",
+      "category": 21
+    },
+    {
+      "name": "bagsCollections",
+      "image": "",
+      "layout": "twoColumn",
+      "category": 23
+    }
+  ],
+
+  "MainColor": "#3FC1BE"
+}
