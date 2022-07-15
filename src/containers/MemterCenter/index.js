@@ -91,7 +91,7 @@ const MemberCenter = ({ navigation,theme }) => {
         <View style={styles.header}>
           <TouchableHighlight style={styles.avatar}>
             <Image
-              source={user.avatar_url ? Images.portrait[user.avatar_url] : Images.defaultAvatar}
+              source={user.avatar_url||user.avatar_url===0 ? Images.portrait[user.avatar_url] : Images.defaultAvatar}
               style={styles.avatar}
             />
           </TouchableHighlight>

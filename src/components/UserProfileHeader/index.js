@@ -50,11 +50,31 @@ class UserProfileHeader extends PureComponent {
       <View style={[styles.container, { backgroundColor: background }]}>
         <View style={styles.header}>
           <TouchableHighlight style={styles.imgView} onPress={() => { this.replaceAvatar(userInfo.name) }}>
-            <Image
-              source={this.props.avatar ? Images.portrait[this.props.avatar] : ("Guest" === avatar ? Images.defaultAvatar : Images.portrait[avatar.uri])}
+          {
+            this.props.avatar ||this.props.avatar===0? <Image
+              source={Images.portrait[this.props.avatar]}
               resizeMethod='scale'
               style={styles.avatar}
+            /> :
+            <Image 
+            style={styles.avatar}  
+            resizeMethod='scale' 
+            source={Images.defaultAvatar}
             />
+          }
+           {/* {this.props.avatar?<Image 
+           style={styles.avatar}  
+           resizeMethod='scale' 
+           source={Images.portrait[this.props.avatar]}
+           />:'Guest' === avatar?<Image 
+           style={styles.avatar}  
+           resizeMethod='scale' 
+           source={Images.defaultAvatar}
+           />
+           :<Image style={styles.avatar}  
+           resizeMethod='scale' 
+           source={Images.defaultAvatar}></Image>} */}
+           {/* <View style={{...styles.avatar,backgroundColor:'gray'}}></View> */}
           </TouchableHighlight>
           <View style={styles.textContainer}>
             <View style={styles.line}>
