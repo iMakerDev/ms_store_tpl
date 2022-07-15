@@ -155,7 +155,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.msstore.poetichouse"
+        applicationId "{{new_item_android_package}}"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 31
