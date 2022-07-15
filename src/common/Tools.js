@@ -187,7 +187,7 @@ export default class Tools {
    */
   static getAvatar = (user) => {
     if (user) {
-      if (user.avatar_url) {
+      if (user.avatar_url||user.avatar_url===0) {
         return {
           uri: user.avatar_url,
         };
@@ -214,7 +214,6 @@ export default class Tools {
     //     })
     // }
     return  'Guest'
-    
   };
 
   // format currency
