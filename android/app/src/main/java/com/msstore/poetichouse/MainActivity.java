@@ -1,4 +1,4 @@
-package com.msstore.poetichouse;
+package {{new_item_android_package}};
 
 import android.content.Intent;
 import android.content.Context;
