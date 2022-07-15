@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "1050703388790",
+    "firebase_url": "https://poetic-house-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "poetic-house",
+    "storage_bucket": "poetic-house.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050703388790:android:8c72fd5f6118a622217f57",
+        "android_client_info": {
+          "package_name": "com.PoeticHouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050703388790-mfu8a2v75097ehlq68jmre4m4k30l7q6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.PoeticHouse",
+            "certificate_hash": "d0fdbdcf09478a756003c5b7ccd58680383af056"
+          }
+        },
+        {
+          "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC1o5tP3XLiHQUsIhAzTD0AIHjs-mXkeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1050703388790-0kprda9ud4m1p3ruu3gn6j49dh9hk0a4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.inspireui.poetic.house"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050703388790:android:5b3a0ec87b396130217f57",
+        "android_client_info": {
+          "package_name": "com.msstore.poetichouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC1o5tP3XLiHQUsIhAzTD0AIHjs-mXkeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1050703388790-0kprda9ud4m1p3ruu3gn6j49dh9hk0a4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.inspireui.poetic.house"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
