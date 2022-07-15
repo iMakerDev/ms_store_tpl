@@ -63,3 +63,8 @@ Pods/
 Podfile.lock
 
 android/gradlew
+android/app/src/main/java/com/msstore/poetichouse/MainActivity.java
+android/app/src/main/java/com/msstore/poetichouse/MainApplication.java
+android/app/src/main/java/com/msstore/poetichouse/SplashActivity.java
+android/app/build.gradle
+android/app/src/main/AndroidManifest.xml
