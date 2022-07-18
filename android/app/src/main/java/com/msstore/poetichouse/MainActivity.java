@@ -17,7 +17,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "PoeticHouse";
+        return "{{name}}";
     }
 
     @Override
