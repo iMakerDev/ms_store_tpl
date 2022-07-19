@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">POETIC</string>
+    <string name="app_name">{{name}}</string>
     <string name="fb_app_id">501847534057136</string>
     <string name="fb_login_protocol_scheme">fb501847534057136</string>
     <string name="ak_client_token">43820d0320f16d893c2fa911b71e3664</string>
