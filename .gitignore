@@ -55,7 +55,6 @@ buck-out/
 */fastlane/Preview.html
 */fastlane/screenshots
 
-!debug.keystore
 
 Pods/
 # Bundle artifact
@@ -69,3 +68,4 @@ android/app/src/main/java/com/msstore/poetichouse/SplashActivity.java
 android/app/build.gradle
 android/app/BUCK
 android/app/src/main/AndroidManifest.xml
+
