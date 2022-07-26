@@ -1,0 +1,36 @@
+{
+  "HorizonLayout": [
+    {
+      "layout": "circleCategory"
+    },
+    {
+      "layout": "bannerHigh",
+      "tag": 166
+    },
+    {
+      "imageBanner": "https://mstore.io/wp-content/uploads/2017/11/woman-large.png",
+      "layout": "bannerImage",
+      "height": 118,
+      "category": 176
+    },
+    {
+      "imageBanner": "https://mstore.io/wp-content/uploads/2017/06/man-large.png",
+      "layout": "bannerImage",
+      "height": 118,
+      "category": 106
+    },
+    {
+      "name": "RoseCrown",
+      "image": "",
+      "layout": "threeColumn",
+      "category": 170
+    },
+    {
+      "name": "WR",
+      "image": "",
+      "layout": "twoColumn",
+      "category": 117
+    }
+  ],
+  "MainColor": "#000000"
+}

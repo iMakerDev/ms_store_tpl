@@ -1,0 +1,32 @@
+{
+  "WooCommerce": {
+    "url": "https://mstore.io",
+    "consumerKey": "ck_b7594bc4391db4b56c635fe6da1072a53ca4535a",
+    "consumerSecret": "cs_980b9edb120e15bd2a8b668cacc734f7eca0ba40"
+  },
+  "HorizonLayout": [
+    {
+      "imageBanner": "http://s3-ap-southeast-1.amazonaws.com/mstore-bucket.io/wp-content/uploads/2019/02/25142018/collection.png",
+      "layout": "bannerImage",
+      "height": 160,
+      "imageMode": "cover",
+      "category": 18
+    },
+    {
+      "layout": "circleCategory" 
+    },
+    {
+      "name": "featureProducts",
+      "image": "",
+      "layout": "card",
+      "category": 21
+    }
+  ],
+
+  "VerticalLayout": {
+    "name": "Recents",
+    "layout": "threeColumn"
+  },
+  
+  "MainColor": "#FF5722"
+}
