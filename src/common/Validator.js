@@ -9,7 +9,12 @@
 // https://validatejs.org/#custom-validator
 
 import validate from "validate.js";
-
+/**
+ * @api  {公用} ./src/common/validate.js 表单验证
+ * @apiName validate
+ * @apiGroup 公用
+ * @apiDescription 表单方法
+ */
 const emailConstraints = {
   foo: {
     presence: {

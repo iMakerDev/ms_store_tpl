@@ -1,3 +1,4 @@
+
 /** @format */
 
 import { PixelRatio } from "react-native";
@@ -313,3 +314,4 @@ export default class Tools {
     return items;
   };
 }
+

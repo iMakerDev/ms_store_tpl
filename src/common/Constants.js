@@ -3,7 +3,12 @@
 import { Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("window");
-
+/**
+ * @api  {公用} ./src/common/Constants.js 项目常量配置
+ * @apiName Constants
+ * @apiGroup 公用
+ * @apiDescription 项目常量配置
+ */
 const Constants = {
   RTL: false, // default to set redux. Only use first time
   useReactotron: true,

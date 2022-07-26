@@ -1,5 +1,10 @@
 /** @format */
-
+/**
+ * @api  {公用} ./src/common/Images.js 图片
+ * @apiName Images
+ * @apiGroup 公用
+ * @apiDescription 项目图片
+ */
 const Images = {
   Logo: require("@images/logo1.jpg"),
   defaultAvatar: require("@images/default_avatar.png"),

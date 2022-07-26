@@ -30,6 +30,7 @@ class UserProfileHeader extends PureComponent {
    * 更换头像
    */
   replaceAvatar = (name) => {
+    return;
     if (Languages.Guest === name) {
       toast(Languages.RegisterErr)
       return
@@ -50,7 +51,7 @@ class UserProfileHeader extends PureComponent {
       <View style={[styles.container, { backgroundColor: background }]}>
         <View style={styles.header}>
           <TouchableHighlight style={styles.imgView} onPress={() => { this.replaceAvatar(userInfo.name) }}>
-          {
+          {/* {
             this.props.avatar ||this.props.avatar===0? <Image
               source={Images.portrait[this.props.avatar]}
               resizeMethod='scale'
@@ -61,7 +62,12 @@ class UserProfileHeader extends PureComponent {
             resizeMethod='scale' 
             source={Images.defaultAvatar}
             />
-          }
+          } */}
+           <Image
+              source={Images.portrait[11]}
+              resizeMethod='scale'
+              style={styles.avatar}
+            />
            {/* {this.props.avatar?<Image 
            style={styles.avatar}  
            resizeMethod='scale' 

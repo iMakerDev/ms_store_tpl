@@ -13,6 +13,17 @@ import { connect } from "react-redux";
 import { Constants, Styles } from "@common";
 import { EventEmitter, Timer } from "@app/Omni";
 
+@connect((state) => {
+  return {
+    toast: state.toast,
+  };
+}, (dispatch) => {
+  const { actions } = require("@redux/ToastRedux");
+  return {
+    addToast: (msg, key) => dispatch(actions.addToast(msg, key)),
+    removeToast: (msg) => dispatch(actions.removeToast(msg)),
+  };
+})
 class MyToast extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +34,7 @@ class MyToast extends React.Component {
   componentDidMount() {
     this.toastListener = EventEmitter.addListener(
       Constants.EmitCode.Toast,
-      this.doToast.bind(this)
+      this.doToast.bind(this),
     );
   }
 
@@ -84,18 +95,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  return {
-    toast: state.toast,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  const { actions } = require("@redux/ToastRedux");
-  return {
-    addToast: (msg, key) => dispatch(actions.addToast(msg, key)),
-    removeToast: (msg) => dispatch(actions.removeToast(msg)),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyToast);
+export default MyToast;

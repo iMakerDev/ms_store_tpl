@@ -161,13 +161,17 @@ const MainNavigator = () => {
   return (
     <MainBottomTab.Navigator
 
+
       initialRouteNam={ROUTER.HOME_STACK}
       tabBar={(props) => <TabBar {...props} />}
-      screenOptions={{ headerShown: false,tabBarIcon:true,lazy:true}}>
+
+      screenOptions={{ headerShown: false,tabBarIcon:true,lazy:true,activeTintColor: Color.primary,
+        }}>
       <MainBottomTab.Screen
         name={ROUTER.HOME_STACK}
         component={HomeStack}
         options={({ navigation }) => {
+
           return {
             tabBarIcon: ({ tintColor }) => {
               return (

@@ -10,9 +10,6 @@ import styles from "./styles";
 import { Config } from "@common";
 const CategoriesList = React.memo(() => {
   //分类tab屏蔽掉配置的分类
-
-  console.log('分类组件init');
-
   const categoryList = useSelector((state) =>
     {
       return state.categories.list?.filter((category) => category.parent === 0 && category.name !== Config.iMarkerConfig)

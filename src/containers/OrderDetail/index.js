@@ -11,6 +11,7 @@ import LineItemsAndPrice from "./LineItemsAndPrice";
 import OrderStatus from "./OrderStatus";
 import OrderNotes from "./OrderNotes";
 import styles from "./styles";
+import AddCredit from "./AddCredit";
 
 class OrderDetail extends React.PureComponent {
   componentDidMount() {
@@ -19,7 +20,7 @@ class OrderDetail extends React.PureComponent {
 
   render() {
     const { order, theme, orderNotes } = this.props;
-
+    console.log(order);
     return (
       <ScrollView
         style={styles.container(theme.colors.background)}
@@ -28,9 +29,16 @@ class OrderDetail extends React.PureComponent {
         <OrderStatus order={order} theme={theme} />
         <ShippingAddress billing={order.billing} theme={theme} />
         <OrderNotes orderNotes={orderNotes} theme={theme} />
-        {order.status !== "cancelled" && order.status !== "refunded" && (
+        {
+          ['completed','cancelled','refunded'].includes(order.status) ? null:<Footer order={order} />
+        }
+        {/* { order.status === "pending" || order.status === "processing" &&(
           <Footer order={order} />
-        )}
+        )} */}
+        {
+          order.status === "completed" && 
+          <AddCredit order={order} />
+        }
       </ScrollView>
     );
   }

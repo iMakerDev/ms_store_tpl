@@ -110,8 +110,13 @@ class SignUpScreen extends Component {
       if (customer) {
         console.log("@@@@@")
         this.setState({ isLoading: false });
+        console.log('cookie');
+        console.log(json);
         login(customer, get(json, "cookie"));
-        signUpUserInfo(customer.id)
+
+
+        signUpUserInfo(customer.id);
+
         // alert(JSON.stringify(this.props))
         return;
       }

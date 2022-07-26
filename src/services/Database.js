@@ -41,10 +41,11 @@ export const pushCoupon = async (userID, couponInfo) => {
         let couponsArr = msg._snapshot.value[userID].coupons
         if (couponsArr) {
             couponsArr = [...couponsArr,couponInfo]
-            // console.log(couponsArr, 'getAllCoupons')
+            console.log(couponsArr, 'getAllCoupons')
         } else {
             couponsArr = [couponInfo]
         }
+
         firebase
             .app().database()
             .ref(`/users/${userID}`)

@@ -17,7 +17,8 @@ export default StyleSheet.create({
     justifyContent: "center",
   },
   wrap: {
-    alignItems: "center",
+    alignItems: "center"
+
   },
   title: {
     marginTop: 6,
@@ -43,7 +44,7 @@ export default StyleSheet.create({
   },
 
   background: {
-    backgroundColor: "#f1f1f1",
+    backgroundColor: "#8e2a2a",
     width: 60,
     height: 60,
     borderRadius: 30,

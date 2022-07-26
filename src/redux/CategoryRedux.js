@@ -4,6 +4,9 @@ import { Config } from "@common";
 // import { warn } from '@app/Omni'
 import { WooWorker } from "api-ecommerce";
 
+
+
+
 const types = {
   FETCH_CATEGORIES_PENDING: "FETCH_CATEGORIES_PENDING",
   FETCH_CATEGORIES_SUCCESS: "FETCH_CATEGORIES_SUCCESS",
@@ -26,37 +29,28 @@ export const actions = {
     console.log('开始获取分类数据...')
     dispatch({ type: types.FETCH_CATEGORIES_PENDING });
     const json = await WooWorker.getCategories();
-    console.log('API类型');
-      console.log(Object.prototype.toString.call(json))
-
-    if (json === undefined) {
-      console.log('分类获取失败1');
-
-      console.log(json);
-
+    if (json instanceof Error) {
+      console.error('分类获取失败:网络链接失败');
+      console.error(json);
       dispatch(actions.fetchCategoriesFailure("Can't get data from server"));
     } else if (json.code) {
-      console.log('分类获取失败2');
-      console.log(json)
-
+      console.error('分类获取失败:接口返回异常！');
+      console.error(json)
       dispatch(actions.fetchCategoriesFailure(json.message));
     } else if(Array.isArray(json)) {
       console.log('分类获取Ok');
-
       dispatch(actions.fetchCategoriesSuccess(json));
 
     }else{
-      console.log('分类获取失败3');
-      console.log(json)
+
       dispatch(actions.fetchCategoriesFailure(json.message));
     }
   },
   fetchCategoriesSuccess: (items) => {
-    console.log('cat Success')
+
     return { type: types.FETCH_CATEGORIES_SUCCESS, items };
   },
   fetchCategoriesFailure: (error) => {
-    console.log('cat Failure')
     return { type: types.FETCH_CATEGORIES_FAILURE, error };
   },
   switchDisplayMode: (mode) => {

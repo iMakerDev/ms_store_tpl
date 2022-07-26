@@ -8,7 +8,7 @@ import { WooWorker } from "api-ecommerce";
 import HTML from "react-native-render-html";
 import Reactotron from "reactotron-react-native";
 import { isArray } from "lodash";
-
+import WPUserAPI from '../../../services/WPUserAPI'
 import { toast, warn } from "@app/Omni";
 import { Button, ConfirmCheckout } from "@components";
 import { Config, Images, Languages, Tools, withTheme } from "@common";
@@ -17,13 +17,10 @@ import css from "@cart/styles";
 
 import styles from "./styles";
 
-
-
-
 const { width } = Dimensions.get("window");
-
 class PaymentOptions extends PureComponent {
   // eslint-disable-next-line react/static-property-placement
+
   static propTypes = {
     fetchPayments: PropTypes.func,
     message: PropTypes.array,
@@ -56,6 +53,9 @@ class PaymentOptions extends PureComponent {
       // securityCode: '',
       // paymentState: '',
       // createdOrder: {},
+      Integral: 0,
+      Coupons_list: [],
+      Integral_records: [],
     };
   }
 
@@ -89,7 +89,7 @@ class PaymentOptions extends PureComponent {
       user: { user, token },
     } = this.props;
     const { selectedIndex } = this.state;
-    const coupon = this.getCouponInfo();
+    const coupon = this.getMyNInfor();
 
     if (!list || (list && !list[selectedIndex])) {
       return;
@@ -115,44 +115,44 @@ class PaymentOptions extends PureComponent {
           user && user.billing.first_name.length === 0
             ? userInfo.first_name
             : user
-            ? user.billing.first_name
-            : userInfo.first_name,
+              ? user.billing.first_name
+              : userInfo.first_name,
         last_name:
           user && user.billing.last_name.length === 0
             ? userInfo.last_name
             : user
-            ? user.billing.last_name
-            : userInfo.last_name,
+              ? user.billing.last_name
+              : userInfo.last_name,
         address_1:
           user && user.billing.address_1.length === 0
             ? userInfo.address_1
             : user
-            ? user.billing.address_1
-            : userInfo.address_1,
+              ? user.billing.address_1
+              : userInfo.address_1,
         city:
           user && user.billing.city.length === 0
             ? userInfo.city
             : user
-            ? user.billing.city
-            : userInfo.city,
+              ? user.billing.city
+              : userInfo.city,
         state:
           user && user.billing.state.length === 0
             ? userInfo.state
             : user
-            ? user.billing.state
-            : userInfo.state,
+              ? user.billing.state
+              : userInfo.state,
         country:
           user && user.billing.country.length === 0
             ? userInfo.country
             : user
-            ? user.billing.country
-            : userInfo.country,
+              ? user.billing.country
+              : userInfo.country,
         postcode:
           user && user.billing.postcode.length === 0
             ? userInfo.postcode
             : user
-            ? user.billing.postcode
-            : userInfo.postcode,
+              ? user.billing.postcode
+              : userInfo.postcode,
       },
       shipping: {
         first_name: userInfo.first_name,
@@ -185,16 +185,34 @@ class PaymentOptions extends PureComponent {
     if (list[selectedIndex].id === "cod") {
       //走woo货到付款
       this.setState({ loading: true });
+      // console.log("进来了货到付款")
       WooWorker.createNewOrder(
         payload,
-        () => {
+        async (res) => {
           this.setState({ loading: false });
           this.props.emptyCart();
           this.props.onNext();
+          console.log("-----------------------------------------------")
+          // console.log(coupon[0].id);
+          if(coupon[0].id){
+            console.log("======================================")
+            for (let item of coupon[0].Mycoupon.coupons) {
+              if (item.id === coupon[0].id) {
+                item.pay_at = new Date();
+                // item.order_id=res.id
+              }
+            }
+            await WPUserAPI.UpdateUserCoupon(
+              user.id, {
+              "meta_data": [{ "key":"UserMeta","value":JSON.stringify(coupon[0].Mycoupon)}]
+            }
+            )
+          }
+          console.log("*****************************************")
         },
-        () => {
+        (rej) => {
           warn("failure");
-
+          // console.log(coupon[0].Mycoupon)
           toast("Something was wrong! Could not checkout.");
 
           this.setState({ loading: false });
@@ -207,16 +225,21 @@ class PaymentOptions extends PureComponent {
       console.log('一键支付')
       Reactotron.log("payload", payload);
       // payload.billing_city = payload.city;
-      this.props.onShowNativeOnePageCheckOut(payload);
+    
+      this.props.onShowNativeOnePageCheckOut(payload,coupon);
+      
     } else {
-
+      console.log("进来了支票")
       Reactotron.log("payload", payload);
       this.props.onShowCheckOut(payload);
     }
+    // console.log("没进去")
+     this.props.cleanOldCoupon();
+
   };
 
-  getCouponInfo = () => {
-    const { couponCode, couponAmount } = this.props;
+  getMyNInfor=()=>{
+    const { couponCode, couponAmount, couponId, Mycoupon } = this.props;
     if (
       typeof couponCode !== "undefined" &&
       typeof couponAmount !== "undefined" &&
@@ -224,6 +247,26 @@ class PaymentOptions extends PureComponent {
     ) {
       return [
         {
+          id: couponId,
+          code: couponCode,
+          discount: `${couponAmount}`,
+          Mycoupon
+        },
+      ];
+    }
+    return [];
+  }
+
+  getCouponInfo = () => {
+    // console.log(this.props.id)
+    const { couponCode, couponAmount } = this.props;
+    if (
+      typeof couponCode !== "undefined" &&
+      typeof couponAmount !== "undefined" &&
+      couponAmount > 0
+    ) {
+      return [
+        {     
           code: couponCode,
           discount: `${couponAmount}`,
         },
@@ -242,7 +285,7 @@ class PaymentOptions extends PureComponent {
           method_title: shippingMethod.title,
           total:
             shippingMethod.id === "free_shipping" ||
-            shippingMethod.method_id === "free_shipping"
+              shippingMethod.method_id === "free_shipping"
               ? "0"
               : shippingMethod.settings.cost.value,
         },
@@ -316,7 +359,7 @@ class PaymentOptions extends PureComponent {
                     buttonStyle={[
                       styles.btnOption,
                       this.state.selectedIndex == index &&
-                        styles.selectedBtnOption,
+                      styles.selectedBtnOption,
                     ]}
                     imageStyle={styles.imgOption}
                   />
@@ -413,6 +456,7 @@ const mapStateToProps = ({ payments, carts, user, products, currency }) => {
     couponAmount: products.coupon && products.coupon.amount,
     discountType: products.coupon && products.coupon.type,
     couponId: products.coupon && products.coupon.id,
+    Mycoupon: products.Mycoupon,
 
     shippingMethod: carts.shippingMethod,
 

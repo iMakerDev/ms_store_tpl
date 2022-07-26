@@ -6,7 +6,7 @@ import {
   Platform,
   RefreshControl,
   FlatList,
-  View,
+  View, ActivityIndicator,
 } from "react-native";
 import { connect } from "react-redux";
 import { AnimatedHeader } from "@components";
@@ -15,15 +15,31 @@ import styles from "./styles";
 import OrderEmpty from "./Empty";
 import OrderItem from "./OrderItem";
 
+
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
+@connect(({ user, carts,token }) => ({ user, carts ,token}),null,mergeProps)
 class MyOrders extends PureComponent {
-  state = { scrollY: new Animated.Value(0) };
-
-  componentDidMount() {
-    this.fetchProductsData();
+  // state = { scrollY: new Animated.Value(0) };
+  constructor(props){
+    super(props);
+    this.state={
+      scrollY: new Animated.Value(0)
+    }
   }
-
+  static navigationOptions = () => ({});
+  tableUnSubscribe=null;
+  componentDidMount() {
+    const { user } = this.props.user;
+    const _this=this
+    this.fetchProductsData();
+    this.tableUnSubscribe=this.props.navigate.addListener('focus',function(){
+      _this.props.fetchMyOrder(user,_this.props.user.token);
+     })
+  }
+  componentWillUnmount(){
+    this.tableUnSubscribe&&this.tableUnSubscribe();
+  }
+  
   componentWillReceiveProps(nextProps) {
     if (this.props.carts.cartItems != nextProps.carts.cartItems) {
       this.fetchProductsData();
@@ -33,8 +49,7 @@ class MyOrders extends PureComponent {
   fetchProductsData = () => {
     const { user } = this.props.user;
     if (typeof user === "undefined" || user === null) return;
-
-    this.props.fetchMyOrder(user);
+    this.props.fetchMyOrder(user,this.props.user.token);
   };
 
   renderError(error) {
@@ -60,23 +75,22 @@ class MyOrders extends PureComponent {
 
   render() {
     const data = this.props.carts.myOrders;
-    console.log('----------------');
-    console.log('----------------');
-    console.log('----------------');
-    console.log('初始化订单页面:')
-    console.log(data);
-    console.log('----------------');
-    console.log('----------------');
-    console.log('----------------');
-    console.log('----------------');
-    console.log(11)
+
     const {
       theme: {
         colors: { background },
       },
     } = this.props;
-    console.log(22)
-    if (typeof data === "undefined" || data.length == 0) {
+
+    if (typeof data === "undefined") {
+      return (
+        <View style={[{flex:1,alignItems:'center',justifyContent:'center'},{ backgroundColor: background }]}>
+          <ActivityIndicator size={'large'} />
+        </View>
+      );
+    }
+
+    if (data.length == 0) {
       return (
         <OrderEmpty
           text={Languages.NoOrder}
@@ -85,7 +99,9 @@ class MyOrders extends PureComponent {
         />
       );
     }
-    console.log(33)
+
+
+
     return (
       <View style={[styles.listView, { backgroundColor: background }]}>
         <AnimatedHeader
@@ -115,20 +131,18 @@ class MyOrders extends PureComponent {
     );
   }
 }
-const mapStateToProps = ({ user, carts }) => ({ user, carts });
+const mapStateToProps = ({ user, carts,token }) => ({ user, carts ,token});
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
   const { actions } = require("@redux/CartRedux");
   return {
     ...ownProps,
     ...stateProps,
-    fetchMyOrder: (user) => {
-      actions.fetchMyOrder(dispatch, user);
+    fetchMyOrder: (user,token) => {
+      actions.fetchMyOrder(dispatch, user,token);
     },
   };
 }
-export default connect(
-  mapStateToProps,
-  null,
-  mergeProps
-)(withTheme(MyOrders));
+
+
+export default withTheme(MyOrders);

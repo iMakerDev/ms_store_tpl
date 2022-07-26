@@ -6,6 +6,11 @@ import { ViewPropTypes, Animated, Easing } from "react-native";
 
 const ANIMATED_EASING_PREFIXES = ["easeInOut", "easeOut", "easeIn"];
 
+/**
+ * @api  {组件} ./src/components/Accordion/Collapsible.js Collapsible
+ * @apiName Color
+ * @apiGroup 组件
+ */
 export default class Collapsible extends PureComponent {
   // eslint-disable-next-line react/static-property-placement
   static propTypes = {

@@ -244,9 +244,10 @@ export const actions = {
   cleanOldCoupon: async (dispatch) => {
     dispatch({ type: types.CLEAN_OLD_COUPON });
   },
-  getCouponAmount: async (dispatch, code, totalPrice) => {
+  getCouponAmount: async (dispatch, code,data, totalPrice) => {
     dispatch({ type: types.GET_COUPON_CODE_PENDING });
-    const json = await WooWorker.getAllCouponCode();//WPUserAPI.getAll()
+    const json = await WPUserAPI.getAll()
+    console.log(json)
     if (json === undefined) {
       console.log('----------');
       dispatch({
@@ -259,12 +260,16 @@ export const actions = {
       let amount = 0;
       let message = "";
       let id = null;
+      let theCouponId=null;
       let discountType = "percent";
       // let minimumAmount = 0;
       // let maximumAmount = 0;
-
       json.forEach((item) => {
-        if (item.code === code) {
+        // console.log(item.code,item.id)
+       let MyItem=data.coupons.filter(item1=>item1.coupon_id===item.id&&!item1.pay_at)
+        // console.log(MyItem);
+        //在我的优惠券里查找到相应的id
+        if (item.code === code&&MyItem.length) {
           if (item.date_expires) {
             const dateExpires = moment(item.date_expires);
             const today = moment();
@@ -286,25 +291,32 @@ export const actions = {
               message = Languages.couponCodeIsExpired;
             }
           } else {
+            // console.log("===========================")
+            console.log(MyItem[0].coupon_id)
             if (
               totalPrice >= parseFloat(item.minimum_amount) &&
               totalPrice <= parseFloat(item.maximum_amount)
             ) {
               amount = item.amount;
               discountType = item.discount_type;
-              id = item.id;
+              id = MyItem[0].id;
+              theCouponId=MyItem[0].coupon_id;
             }
             if (totalPrice >= parseFloat(item.minimum_amount)) {
               amount = item.amount;
               discountType = item.discount_type;
-              id = item.id;
+              id = MyItem[0].id;
+              theCouponId=MyItem[0].coupon_id;
             }
 
             if (totalPrice <= parseFloat(item.maximum_amount)) {
               amount = item.amount;
               discountType = item.discount_type;
-              id = item.id;
+              id = MyItem[0].id;
+              theCouponId=MyItem[0].coupon_id;
             }
+
+
           }
         }
       });
@@ -325,6 +337,9 @@ export const actions = {
           code,
           discountType,
           id,
+          Mycoupon:data,
+          theCouponId
+          // JSON.stringify(data)
         });
       }
     }
@@ -498,7 +513,9 @@ export const reducer = (state = initialState, action) => {
           type: action.discountType,
           code: action.code,
           id: action.id,
+          theId:action.theCouponId
         },
+        Mycoupon:action.Mycoupon,
         error: null,
       };
     }
