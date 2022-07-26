@@ -9,7 +9,11 @@ import { connect } from "react-redux";
 
 import { Config } from "@common";
 import styles from "./styles";
-
+/**
+ * @api  {组件} ./src/components/AppIntro/index.js 引导页
+ * @apiName Intro
+ * @apiGroup 组件
+ */
 class AppIntro extends PureComponent {
   _renderItem = (props) => {
     const { item } = props;

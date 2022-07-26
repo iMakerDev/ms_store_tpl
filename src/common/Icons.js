@@ -2,6 +2,12 @@
 
 // Check out at 'http://ionicframework.com/docs/v2/ionicons/' for more icons
 // 'react-native-vector-icons/Ionicons'
+/**
+ * @api  {公用} ./src/common/Icons.js 图标
+ * @apiName Icons
+ * @apiGroup 公用
+ * @apiDescription 项目图标
+ */
 const Ionicons = {
   Menu: "ios-menu",
   Home: "ios-home",

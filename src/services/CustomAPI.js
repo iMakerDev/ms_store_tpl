@@ -2,7 +2,7 @@
 /**
  * TODO: need refactor
  */
-
+ import WPUserAPI from './WPUserAPI'
 import { Config } from "@common";
 import { Alert, Platform } from "react-native";
 
@@ -76,7 +76,7 @@ WordpressAPI.prototype._request = function(url, callback) {
     });
 };
 
-WordpressAPI.prototype.getCheckoutUrl = async function(data,ext, callback) {
+WordpressAPI.prototype.getCheckoutUrl = async function(data,ext, callback,Mymess,id) {
   const requestUrl = `${this.url}/wp-json/api/flutter_user/checkout`;
   fetch(requestUrl, {
     method: "POST",
@@ -87,13 +87,7 @@ WordpressAPI.prototype.getCheckoutUrl = async function(data,ext, callback) {
     body: JSON.stringify(data),
   })
     .then((response) => response.json())
-    .then((code) => {
-
-      // console.log('订单数据Base64');
-      // console.log(data)
-      // console.log('订单号码:')
-      // console.log(code);
-
+    .then(async (code) => {
       callback(`${this.url}/checkout?code=${code}&mobile=true&country=${ext.country}`);
     })
     .catch((error) => {

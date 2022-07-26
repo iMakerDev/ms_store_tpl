@@ -1,5 +1,13 @@
 /** @format */
 
+
+/**
+ * @api  {公用} ./src/common/Color.js 预定义颜色
+ * @apiName Color
+ * @apiGroup 公用
+ * @apiDescription 预定义颜色
+ */
+
 export default {
   primary: "#3FC1BE", // '#FF0074', //
 
@@ -78,9 +86,9 @@ export default {
     blue: "#38B1E7",
     yellow: "#FDF12C",
     pink: 'pink',
-    黑色: "#333",
-    红色: "#DF3737",
-    緑色: "#2AB5B3",
+    "黑色": "#333",
+    "红色": "#DF3737",
+    "緑色": "#2AB5B3",
     蓝色: "#38B1E7",
     黄色: "#FDF12C",
   },

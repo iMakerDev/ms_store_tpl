@@ -194,6 +194,8 @@ class LoginScreen extends PureComponent {
             this.setState({ isLoading: false });
 
             this._onBack();
+            console.log('cookie');
+            console.log(json);
             login(customers, json.cookie);
 
             return;
@@ -321,11 +323,11 @@ class LoginScreen extends PureComponent {
           })
           .catch((e) => {
             toast(`Please type code again`);
-            this.setState({ isLoading: false, showConfirmCode: false });
+            this.setState({ isLoading: false, showConfirmCode: false , loadingVerify:false});
           });
       } else {
         toast(`Please type code again`);
-        this.setState({ isLoading: false, showConfirmCode: false });
+        this.setState({ isLoading: false, showConfirmCode: false, loadingVerify:false });
       }
     } catch (err) {
       console.log("confirmVerifyCode error", err);

@@ -3,6 +3,8 @@
 import { Constants, Tools, Languages } from "@common";
 import { WooWorker } from "api-ecommerce";
 import Validate from "../utils/Validate.js";
+import WooCommerce from "../common/Config"
+import Config from "../common/Config";
 
 const types = {
   ADD_CART_ITEM: "ADD_CART_ITEM",
@@ -23,9 +25,25 @@ const types = {
   GET_ORDER_NOTES_PENDING: "GET_ORDER_NOTES_PENDING",
   GET_ORDER_NOTES_SUCCESS: "GET_ORDER_NOTES_SUCCESS",
   GET_ORDER_NOTES_FAIL: "GET_ORDER_NOTES_FAIL",
+  UPDATE_USER_META_DATA: "UPDATE_USER_META_DATA",
 };
 
 export const actions = {
+  updateUserMetaData: (dispatch,user,data) => {
+    console.log("++++");
+    console.log(data);
+    console.log("++++++");
+    dispatch({type:types.UPDATE_USER_META_DATA});
+    const url = `${Config.WooCommerce.url}/wp-json/wc/v3/customers/${user.id}?consumer_key=${Config.WooCommerce.consumerKey}&consumer_secret=${Config.WooCommerce.consumerSecret}`;
+    console.log(url);
+    fetch(url,{
+      method: "PUT",
+      headers: {
+          'Content-type': 'application/json'
+      },
+      body:JSON.stringify({"meta_data" : data}),
+    }).then(res => console.log(res.json().then(r=>console.log(r)))).catch(err => console.log(err));
+  },
   addCartItem: (dispatch, product, variation) => {
     dispatch({
       type: types.ADD_CART_ITEM,
@@ -33,11 +51,20 @@ export const actions = {
       variation,
     });
   },
-  fetchMyOrder: (dispatch, user) => {
+  fetchMyOrder: (dispatch, user,token) => {
     dispatch({ type: types.FETCH_CART_PENDING });
     console.log('获取用户订单');
-    WooWorker.ordersByCustomerId(user.id, 40, 1)
+    console.log(token);
+    // if(!token){
+    //   console.log('token blank')
+    //   return;
+    // }
+    WooWorker.ordersByCustomerId(user.id,`40&token=${token}&timestamp=${Date.now()}`, 1)
       .then((data) => {
+        console.log('respone');
+        console.log(data);
+        console.log('order list')
+        console.log(data.length)
         if(Array.isArray(data)){
           dispatch({
             type: types.FETCH_MY_ORDER,
@@ -106,6 +133,7 @@ export const actions = {
   },
   createNewOrder: async (dispatch, payload) => {
     dispatch({ type: types.CREATE_NEW_ORDER_PENDING });
+
     const json = await WooWorker.createOrder(payload);
 
     if (json.hasOwnProperty("id")) {
@@ -162,7 +190,7 @@ const initialState = {
   cartItems: [],
   total: 0,
   totalPrice: 0,
-  myOrders: [],
+  myOrders: undefined,
   isFetching: false,
 };
 
@@ -264,6 +292,8 @@ export const reducer = (state = initialState, action) => {
         isFetching: false,
         myOrders: action.data,
       });
+    case types.UPDATE_USER_META_DATA:
+      return {...state};
     case types.FETCH_CART_PENDING: {
       return {
         ...state,
@@ -369,9 +399,9 @@ const cartItem = (
 function getPrice(action) {
   return Number(
     action.variation === undefined ||
-      action.variation == null ||
-      action.variation.price === undefined ||
-      action.variation.price === ""
+    action.variation == null ||
+    action.variation.price === undefined ||
+    action.variation.price === ""
       ? Tools.getPriceIncludedTaxAmount(action.product, null, true)
       : Tools.getPriceIncludedTaxAmount(action.variation, null, true)
   );

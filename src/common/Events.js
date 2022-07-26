@@ -17,6 +17,12 @@ const onOpenModalReview = (func) =>
 const onCloseModalReview = (func) =>
   EventEmitter.addListener("modal.review.close", func);
 
+/**
+ * @api  {公用} ./src/common/Events.js 事件监听器
+ * @apiName Events
+ * @apiGroup 公用
+ * @apiDescription 监听器：模态窗
+ */
 export default {
   openModalLayout,
   closeModalLayout,

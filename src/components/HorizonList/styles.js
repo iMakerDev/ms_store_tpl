@@ -1,4 +1,5 @@
 /** @format */
+/** @format */
 
 import { StyleSheet, Platform, Dimensions } from "react-native";
 import { Constants } from "@common";
@@ -16,9 +17,9 @@ export default StyleSheet.create({
     flexDirection: "row",
   },
   mainList: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+
+
+
     paddingBottom: 20,
 
     ...Platform.select({
@@ -26,7 +27,7 @@ export default StyleSheet.create({
         paddingTop: 10,
       },
       android: {
-        paddingTop: 60,
+        paddingTop: 10,
       },
     }),
   },
@@ -126,8 +127,11 @@ export default StyleSheet.create({
   },
 
   headerLogo: {
-    marginLeft: 20,
-
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    marginLeft:"5%",
+    marginRight:'5%',
     ...Platform.select({
       ios: {
         paddingTop: 10,
@@ -138,17 +142,17 @@ export default StyleSheet.create({
     }),
   },
   headerDate: {
-    fontSize: 14,
+    fontSize: 20,
     // width: 120,
     paddingTop: 5,
     marginBottom: 0,
-    fontWeight: "400",
+    fontWeight: "bold",
     opacity: 0.8,
     fontFamily: Constants.fontFamily,
   },
   logo: {
-    height: 50,
-    width: 'auto',
+    height: 120,
+    width: 120,
     resizeMode: "contain",
   },
 });

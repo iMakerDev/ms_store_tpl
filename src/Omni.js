@@ -27,6 +27,13 @@ export const Reactotron = reactotron;
 const _log = (values) => __DEV__ && reactotron.log(values);
 const _warn = (values) => __DEV__ && reactotron.warn(values);
 const _error = (values) => __DEV__ && reactotron.error(values);
+
+/**
+ * @api  {工具} ./src/Omni.js 一些工具方法
+ * @apiName Omni
+ * @apiGroup 全局
+ * @apiDescription 开发工具，侧边栏等
+ */
 export function connectConsoleToReactotron() {
   // console.log = _log;
   // console.warn = _warn;
@@ -122,3 +129,29 @@ export const getNotification = async () => {
     // console.log(error);
   }
 };
+
+
+
+let a = {
+  myOrders:[{
+    order_1:{
+      id:1,
+      user_id:22,
+      price:200
+    }
+  }],
+  cup:{
+
+    integral:2000,
+    integral_order_records:[
+      {
+        order_id:1,
+        count:200
+      }
+    ],
+    ticket_records:[],
+
+
+
+  }
+}

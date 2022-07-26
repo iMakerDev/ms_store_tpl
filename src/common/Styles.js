@@ -10,7 +10,12 @@ import Config from "./Config";
 import Theme from "./Theme";
 
 const { height, width } = Dimensions.get("window");
-
+/**
+ * @api  {公用} ./src/common/style.js 全局样式
+ * @apiName Styles
+ * @apiGroup 公用
+ * @apiDescription 样式
+ */
 const Styles = {
   width,
   height: Platform.OS !== "ios" ? height : height - 20,

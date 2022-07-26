@@ -1,7 +1,12 @@
 /** @format */
 
 import LocalizedStrings from "react-native-localization";
-
+/**
+ * @api  {公用} ./src/common/language.js 多语言
+ * @apiName Language
+ * @apiGroup 公用
+ * @apiDescription 项目配置多语言
+ */
 export default new LocalizedStrings({
   en: {
     MemberCenter: 'member Center',
@@ -12,7 +17,8 @@ export default new LocalizedStrings({
     ViewMyOrders: "View My Oders",
     CANCEL: "CANCEL",
     Confirm: "Confirm",
-
+    pleaseLogin:"Please login first",
+    AddCredit: "AddCredit",
     // Scene's Titles
     Home: "Home",
     Intro: "Intro",
@@ -122,6 +128,8 @@ export default new LocalizedStrings({
     PayWithStripe: "Your purchase will be pay with Stripe",
     ApplyCoupon: "Apply",
     CouponPlaceholder: "COUPON CODE",
+    CheckCouponDeafault:'The coupon has been locked by the unpaid order and cannot be used',
+    NoCoupon:'The coupon has been locked by the unpaid order and cannot be used',
     APPLY: "APPLY",
     Back: "Back",
     CardNamePlaceholder: "Name written on card",
@@ -160,6 +168,7 @@ export default new LocalizedStrings({
     OrderDetails: "Show detail",
     ShippingAddress: "Shipping Address:",
     Refund: "Refund",
+    AddCredit: "AddCredit",
 
     PostDetails: "Post Details",
     FeatureArticles: "Feature articles",
@@ -345,10 +354,11 @@ export default new LocalizedStrings({
     CouponInfo: "Coupon exchange information",
     Exchange: "Confirm the change",
     Coupon: "Coupon",
-    ConversionCode: "Conversion Code",
+    ConversionCode: "Code",
     ForSuccessful: "Redeem successful, can go to my coupon to view"
   },
   cn: {
+    AddCredit: "获取积分",
     Exit: "退出",
     ExitConfirm: "你确定要退出这个应用程序",
     YES: "是的",
@@ -356,6 +366,7 @@ export default new LocalizedStrings({
     ViewMyOrders: "查看我的订单",
     CANCEL: "取消",
     Confirm: "确认",
+    pleaseLogin:'请先登录',
     ////场景的标题
     Home: "家",
     Intro: "介绍",
@@ -457,6 +468,8 @@ export default new LocalizedStrings({
     PayWithStripe: "您的购买将被Stripe支付",
     ApplyCoupon: "应用",
     CouponPlaceholder: "优惠券代码",
+    CheckCouponDeafault:"该优惠券已被未支付订单锁定,无法使用",
+    NoCoupon:'抱歉，你没有兑换该优惠券，不能使用',
     APPLY: "应用",
     Back: "返回",
     CardNamePlaceholder: "姓名写在卡片上",
@@ -495,6 +508,7 @@ export default new LocalizedStrings({
     OrderDetails: "细节",
     ShippingAddress: "送货地址:",
     Refund: "退款",
+    AddCredit: "获取积分",
     PostDetails: "细节",
     FeatureArticles: "专题",
     MostViews: "多数意见",
@@ -672,6 +686,7 @@ export default new LocalizedStrings({
     ViewMyOrders: "查看我們的訂單",
     CANCEL: "取消",
     Confirm: "確認",
+    pleaseLogin:"請先登錄",
     ////场景的标题
     Home: "家",
     Intro: "介紹",
@@ -773,6 +788,8 @@ export default new LocalizedStrings({
     PayWithStripe: "您的購買將被Stripe支付",
     ApplyCoupon: "應用",
     CouponPlaceholder: "優惠券代碼",
+    CheckCouponDeafault:'該優惠券已被未支付訂單鎖定，無法使用',
+    NoCoupon:'抱歉，你沒有兌換該優惠券，无法使用',
     APPLY: "應用",
     Back: "返回",
     CardNamePlaceholder: "姓名寫在卡片上",
@@ -811,6 +828,7 @@ export default new LocalizedStrings({
     OrderDetails: "細節",
     ShippingAddress: "送貨地址:",
     Refund: "退款",
+    AddCredit: "獲取積分",
     PostDetails: "細節",
     FeatureArticles: "專題",
     MostViews: "多數意見",

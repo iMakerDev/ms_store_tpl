@@ -209,15 +209,24 @@ class DrawerMultiChild extends PureComponent {
           styles.container,
           {
             backgroundColor: backgroundMenu,
-          },
-          {shadowColor:'rgba(0,0,0,0.4)',shadowRadius:2,shadowOpacity:0.2,shadowOffset:{width:5,height:5}}
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5,
+          }
+
         ]}>
         <View
           style={[
             styles.avatarBackground,
             {
               backgroundColor: backgroundMenu,
-            },
+            }
           ]}>
           <Image
             source={Images.portrait[avatar.uri]||Images.defaultAvatar}

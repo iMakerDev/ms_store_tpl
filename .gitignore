@@ -69,3 +69,7 @@ android/app/build.gradle
 android/app/BUCK
 android/app/src/main/AndroidManifest.xml
 
+<<<<<<< HEAD
+=======
+src/common/Config.js
+>>>>>>> 68964fe21043ac6e68af5251eeb6445d9ab34182

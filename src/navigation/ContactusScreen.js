@@ -1,10 +1,12 @@
+/** @format */
+
 import React, { PureComponent } from "react";
 import { View } from "react-native";
 import { WebView } from "react-native-webview";
 
 import { CustomPage } from "@containers";
 
-class ContactusScreen extends PureComponent {
+class CustomPageScreen extends PureComponent {
   render() {
     const { route } = this.props;
 
@@ -28,4 +30,4 @@ class ContactusScreen extends PureComponent {
   }
 }
 
-export default ContactusScreen;
+export default CustomPageScreen;

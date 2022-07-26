@@ -24,7 +24,11 @@ const kDefault1Px = 1.0 / PixelRatio.get();
 const kDefaultNotArrayTypeErrorDesc = "Prop `titles` must be an array.";
 const kDefaultArrayIsEmptyErrorDesc =
   "Prop `titles` must be an array and it must not be empty.";
-
+/**
+ * @api  {组件} ./src/components/ActionSheets/index.js 底部弹窗
+ * @apiName ActionSheets
+ * @apiGroup 组件
+ */
 export default class ActionSheet extends Component {
   static propTypes = {
     titles: PropTypes.array.isRequired,

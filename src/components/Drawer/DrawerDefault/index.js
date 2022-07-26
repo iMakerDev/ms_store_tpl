@@ -60,7 +60,7 @@ class DrawerDefault extends PureComponent {
 
     return (
       <View style={{...styles.container,
-      shadowColor:'rgba(0,0,0,0.7)',shadowRadius:2,shadowOpacity:0.2,shadowOffset:{width:5,height:5}
+      shadowColor:'rgba(0,0,0,0.7)',shadowRadius:2,shadowOpacity:0.2,shadowOffset:{width:5,height:5},backgroundColor:'red'
         }}>
         <View style={[styles.avatarBackground, Styles.Common.ColumnCenter]}>
           <Image

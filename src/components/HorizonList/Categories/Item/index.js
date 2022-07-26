@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Text, View, Image } from "react-native";
 
-import { withTheme } from "@common";
+import { Color, withTheme } from "@common";
 import { TouchableScale } from "@components";
 
 import styles from "./styles";
@@ -21,14 +21,15 @@ class Item extends Component {
     } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container,{marginTop:0}]}>
         <TouchableScale
           scaleTo={0.7}
-          style={styles.wrap}
+          style={[styles.wrap]}
           onPress={() => onPress({ ...item, circle: true, name: label })}>
           <View
             style={[
               styles.background,
+              {backgroundColor: Color.primary},
               { opacity: 0.08 },
             ]}
           />
@@ -39,7 +40,7 @@ class Item extends Component {
               style={[styles.icon]}
             />
           </View>
-          <Text style={[styles.title, { color: text }]}>{item.name}</Text>
+          <Text style={[styles.title, { color: text },{width:100}]}>{item.name}</Text>
         </TouchableScale>
       </View>
     );

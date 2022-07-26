@@ -1,6 +1,11 @@
 /** @format */
 import { DefaultTheme, DarkTheme } from "react-native-paper";
-
+/**
+ * @api  {公用} ./src/common/Theme.js 系统主题
+ * @apiName Theme
+ * @apiGroup 公用
+ * @apiDescription 主题样式
+ */
 const dark = {
   ...DarkTheme,
   colors: {

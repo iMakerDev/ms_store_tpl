@@ -17,17 +17,25 @@ import { toast } from "@app/Omni";
 import { ProductItem } from "@components";
 import { Languages, Color, withTheme, Tools } from "@common";
 import { getAllCoupons } from '@services/Database'
+import WPUserAPI from '../../../services/WPUserAPI'
 import css from "@cart/styles";
 import styles from "./styles";
 
+@withTheme
 class MyCart extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
       coupon: props.couponCode,
+      orderState:null,
+      banCoupon:[],
     };
   }
+  // componentDidMount(){
+  //   const {userProfile,token} =this.props
+  //   this.props.fetchMyOrder(userProfile,token)
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (
@@ -51,7 +59,7 @@ class MyCart extends PureComponent {
     let couponBtn = Languages.ApplyCoupon;
     let colors = [Color.darkOrange, Color.darkYellow, Color.yellow];
     const totalPrice = this.getTotalPrice();
-    const finalPrice =
+    let finalPrice =
       discountType === "percent"
         ? totalPrice - this.getExistCoupon() * totalPrice
         : totalPrice - this.getExistCoupon();
@@ -98,6 +106,7 @@ class MyCart extends PureComponent {
                 </SwipeRow>
               ))}
           </View>
+        
           {/* 优惠券 */}
           <View style={[styles.couponView(dark)]}>
             <Text style={[css.label, { color: text }]}>
@@ -155,30 +164,59 @@ class MyCart extends PureComponent {
       </TouchableOpacity>
     );
   };
+  checkOrderState=(code)=>{
+    const {myOrders} =this.props
+    console.log("=============================")
+    console.log(myOrders)
+    let res=true;
+    let arr=myOrders.filter(item=>item.coupon_lines.length&&item.status==="pending")
+    console.log(arr.length);
+    if(arr.length){
+      console.log("*****************************")
+      res=arr.some(item=>item.coupon_lines[0].code===code)
+      console.log(res);
+      res?toast(Languages.CheckCouponDeafault):res=false;
+    }else res=false
+    return res;
+  }
+
 
   checkCouponCode = () => {
     const { totalPrice,userProfile } = this.props;
     // console.log(userProfile,'userProfileuserProfile')
     if (this.getExistCoupon() === 0) {
       if(!userProfile.id){
-        toast('请先登录')
+        toast(Languages.pleaseLogin)
         return
       }
-      getAllCoupons(userProfile.id).then(msg=>{
-        let data = msg._snapshot.value[userProfile.id].coupons
-        // console.log(msg._snapshot.value[userProfile.id],'database')
-        // console.log(data,'优惠券列表')
-        if(data){
-          for(const i of data){
-            if(i.code===this.state.coupon){
-              this.props.getCouponAmount(this.state.coupon, totalPrice);
-              // console.log('可以使用该优惠券')
-              return
-            }
-          }
+      WPUserAPI.GetUserNewestMess(userProfile.id).then(msg=>{
+        let userMeta=msg.meta_data.filter(item => item.key === 'UserMeta')
+        if(userMeta){
+          let couponList=JSON.parse(userMeta[0].value);
+          if(couponList.coupons.length){
+            //确认个人订单状态
+            let check=this.checkOrderState(this.state.coupon)
+            console.log(check)
+            !check&&this.props.getCouponAmount(this.state.coupon, couponList,totalPrice)
+          }else toast(Languages.NoCoupon)
         }
-        toast('抱歉，你没有兑换该优惠券，不能使用')
       })
+      // getAllCoupons(userProfile.id).then(msg=>{
+      //   let data = msg._snapshot.value[userProfile.id].coupons
+      //   // console.log(msg._snapshot.value[userProfile.id],'database')
+      //   // console.log(data,'优惠券列表')
+      //   if(data){
+      //     for(const i of data){
+      //       if(i.code===this.state.coupon){
+      // this.props.getCouponAmount(this.state.coupon, totalPrice);
+
+      //         // console.log('可以使用该优惠券')
+      //         return
+      //       }
+      //     }
+      //   }
+      //   toast('抱歉，你没有兑换该优惠券，不能使用')
+      // })
     } else {
       this.setState({ coupon: "" });
       this.props.cleanOldCoupon();
@@ -233,12 +271,13 @@ const mapStateToProps = ({user, carts, products, currency }) => {
   // console.log(user,'ppppppp')
   return {
     userProfile: user.user,
-
+    token:user.token,
     cartItems: carts.cartItems,
     totalPrice: carts.totalPrice,
     couponCode: products.coupon && products.coupon.code,
     couponAmount: products.coupon && products.coupon.amount,
     discountType: products.coupon && products.coupon.type,
+    // myOrders:carts.myOrders,
 
     isFetching: products.isFetching,
     type: products.type,
@@ -246,6 +285,7 @@ const mapStateToProps = ({user, carts, products, currency }) => {
     currency,
   };
 };
+
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
   const { dispatch } = dispatchProps;
@@ -263,14 +303,16 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
     cleanOldCoupon: () => {
       productActions.cleanOldCoupon(dispatch);
     },
-    getCouponAmount: (coupon, totalPrice) => {
-      productActions.getCouponAmount(dispatch, coupon, totalPrice);
+    getCouponAmount: (coupon,data,totalPrice) => {
+      productActions.getCouponAmount(dispatch, coupon, data,totalPrice);
     },
+    // fetchMyOrder:(user,token)=>{
+    //   actions.fetchMyOrder(dispatch,user,token);
+    // }
   };
 }
 
-export default connect(
-  mapStateToProps,
-  undefined,
-  mergeProps
-)(withTheme(MyCart));
+
+export default connect(mapStateToProps,undefined,mergeProps)(MyCart);
+
+

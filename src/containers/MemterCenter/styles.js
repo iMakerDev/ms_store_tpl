@@ -4,6 +4,12 @@ import { StyleSheet, Dimensions } from "react-native";
 const { width, height } = Dimensions.get("window");
 
 export default StyleSheet.create({
+  safeAreaView:{
+    flex:1,
+  },
+  scrollView:{
+    flexGrow:1,
+  },
   container: {
     marginBottom: 2,
   },

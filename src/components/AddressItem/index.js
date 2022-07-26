@@ -13,7 +13,11 @@ const getCountryNameByCode = (country, countries) => {
 
   return currentCountry || country;
 };
-
+/**
+ * @api  {组件} ./src/components/AddressItem/index.js 地址
+ * @apiName AddressItem
+ * @apiGroup 组件
+ */
 // eslint-disable-next-line react/prefer-stateless-function
 class Item extends React.PureComponent {
   render() {

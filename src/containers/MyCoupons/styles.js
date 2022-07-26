@@ -13,9 +13,10 @@ export default StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         padding: 10,
-        height: 60,
+
         // width: 200,
-        backgroundColor: '#022a2c',
+        borderRadius:10,
+
     },
     couponsSum: {
         fontSize: 25,
@@ -28,8 +29,10 @@ export default StyleSheet.create({
         fontWeight: "600"
     },
     codeText:{
-        backgroundColor: "#ab283a" ,
+
         display:'flex',
+        padding:10,
+        borderRadius:10,
         flexDirection:"row",
         justifyContent:'center',
         alignItems:"center"
