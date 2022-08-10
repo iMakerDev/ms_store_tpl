@@ -57,31 +57,38 @@ class Delivery extends PureComponent {
     }
   }
 
-  _getCustomStyle = () => {
-    const {
+   _getCustomStyle = () => {
+    console.log('__________')
+    console.log(this.props.theme.dark);
+    console.log('++++++++=')
+    let {
       theme: {
-        colors: { text },
+        colors: { text }
       },
     } = this.props;
+    // text = this.props.theme.dark ? 'orange':'green';
     // Customize Form Stylesheet
     customStyle.textbox.normal = {
       ...customStyle.textbox.normal,
       height: 150,
       marginBottom: 200,
-      color: text,
+      color:'#706e6e',
       textAlign: "left",
     };
     customStyle.controlLabel.normal = {
       ...customStyle.controlLabel.normal,
       fontSize: 15,
-      color: text,
+      color:'#706e6e',
       textAlign: "left",
     };
 
     return customStyle;
   };
 
-  _getCustomInputStyle = () => {
+   _getCustomInputStyle = () => {
+
+
+
     const {
       theme: {
         colors: { text },
@@ -91,18 +98,18 @@ class Delivery extends PureComponent {
     customInputStyle.controlLabel.normal = {
       ...customInputStyle.controlLabel.normal,
       fontSize: 15,
-      color: text,
+      color:'#8d8d8d',
       textAlign: "left",
     };
     customInputStyle.textbox.normal = {
       ...customInputStyle.textbox.normal,
-      color: text,
+      color:'#8d8d8d',
       width: Styles.width / 2,
       textAlign: "left",
     };
     customInputStyle.textbox.error = {
       ...customInputStyle.textbox.normal,
-      color: text,
+      color:'#8d8d8d',
       width: Styles.width / 2,
       textAlign: "left",
     };
@@ -110,6 +117,7 @@ class Delivery extends PureComponent {
       ...customInputStyle.formGroup.normal,
       flexDirection: "row",
       flexWrap: "wrap",
+      color:'#8d8d8d',
       alignItems: "center",
       justifyContent: "space-between",
     };
