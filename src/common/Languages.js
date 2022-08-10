@@ -112,7 +112,7 @@ export default new LocalizedStrings({
     Login: "Login",
     Logout: "Logout",
     Category: "Category",
-
+    deleteButton:'Delete this user',
     // Checkout
     Checkout: "Checkout",
     ProceedPayment: "Proceed Payment",
@@ -128,8 +128,8 @@ export default new LocalizedStrings({
     PayWithStripe: "Your purchase will be pay with Stripe",
     ApplyCoupon: "Apply",
     CouponPlaceholder: "COUPON CODE",
-    CheckCouponDeafault:'The coupon has been locked by the unpaid order and cannot be used',
-    NoCoupon:'The coupon has been locked by the unpaid order and cannot be used',
+    CheckCouponDefault:'The coupon has been locked by the unpaid order and cannot be used',
+    NoCoupon:"Sorry, you haven't redeemed the coupon",
     APPLY: "APPLY",
     Back: "Back",
     CardNamePlaceholder: "Name written on card",
@@ -156,7 +156,7 @@ export default new LocalizedStrings({
     CardHolderName: "Cardholder Name",
     ExpirationDate: "Expiration Date",
     SecurityCode: "CVV",
-
+    deleteSuccess:"SignOut Success",
     // myorder
     OrderId: "Order ID",
     MyOrder: "My Orders",
@@ -298,7 +298,7 @@ export default new LocalizedStrings({
     bagsCollections: "Bags Collections",
     womanBestSeller: "Woman Best Seller",
     manCollections: "Man Collections",
-
+    deleteTip:"Are You Sure You Want Yo Delete",
     // Modal
     Select: "Select",
     Cancel: "Cancel",
@@ -342,8 +342,8 @@ export default new LocalizedStrings({
 
     UserProfile: "User Profile",
     LoadMore: "Load More",
-    RoseCrown: 'RoseCrown',
-    WR: 'WR',
+    RoseCrown: '美睫系列',
+    WR: '面部護理',
     RegisterErr: "Please login first",
     MemberErr: "You are not a member, please register as a member first",
     RegisteredMembers: "Registered Member",
@@ -373,7 +373,9 @@ export default new LocalizedStrings({
     Product: "产品",
     Cart: "购物车",
     WishList: "愿望列表",
+    deleteButton:'删除该用户',
     InputPhone: "请填写您的电话号码",
+    deleteTip:"确认要删除吗",
     // 家
     products: "产品",
     // TopBar
@@ -468,7 +470,7 @@ export default new LocalizedStrings({
     PayWithStripe: "您的购买将被Stripe支付",
     ApplyCoupon: "应用",
     CouponPlaceholder: "优惠券代码",
-    CheckCouponDeafault:"该优惠券已被未支付订单锁定,无法使用",
+    CheckCouponDefault:"该优惠券已被未支付订单锁定,无法使用",
     NoCoupon:'抱歉，你没有兑换该优惠券，不能使用',
     APPLY: "应用",
     Back: "返回",
@@ -621,6 +623,7 @@ export default new LocalizedStrings({
     bagsCollections: "包集合",
     womanBestSeller: "女性畅销书",
     manCollections: "集合",
+    deleteSuccess:"删除成功",
     //模态
     Select: "选择",
     Cancel: "取消",
@@ -662,8 +665,8 @@ export default new LocalizedStrings({
     UserProfile: "用户资料",
     LoadMore: "加载更多",
     AccountInformations: "用户信息",
-    RoseCrown: 'RoseCrown',
-    WR: 'WR',
+    RoseCrown: '美睫系列',
+    WR: '面部護理',
     MemberCenter: "会员中心",
     RegisterErr: "请先登录",
     MemberErr: "您不是会员，请先注册成为会员",
@@ -694,13 +697,16 @@ export default new LocalizedStrings({
     Cart: "購物車",
     WishList: "願望列表",
     InputPhone: "請填寫您的電話號碼",
+    deleteSuccess:"删除成功",
     // 家
     products: "產品",
+    deleteTip:"確認要删除嗎",
     // TopBar
     ShowFilter: "子類別",
     HideFilter: "應藏",
     Sort: "排序",
     textFilter: "最近",
+    deleteButton:'删除該用戶',
     //类别
     ThereIsNoMore: "沒有更多的產品展示",
     //产品
@@ -788,7 +794,7 @@ export default new LocalizedStrings({
     PayWithStripe: "您的購買將被Stripe支付",
     ApplyCoupon: "應用",
     CouponPlaceholder: "優惠券代碼",
-    CheckCouponDeafault:'該優惠券已被未支付訂單鎖定，無法使用',
+    CheckCouponDefault:'該優惠券已被未支付訂單鎖定，無法使用',
     NoCoupon:'抱歉，你沒有兌換該優惠券，无法使用',
     APPLY: "應用",
     Back: "返回",
@@ -982,8 +988,8 @@ export default new LocalizedStrings({
     UserProfile: "用戶資料",
     LoadMore: "加載更多",
     AccountInformations: "用戶信息",
-    RoseCrown: 'RoseCrown',
-    WR: 'WR',
+    RoseCrown: '美睫系列',
+    WR: '面部護理',
     MemberCenter: "會員中心",
     RegisterErr: "請先登錄",
     MemberErr: "您不是會員，請先註冊成為會員",
