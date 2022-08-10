@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { PureComponent } from "react";
-import { View, ScrollView, Text, Switch, Modal, Image, TouchableOpacity, } from "react-native";
+import { View, ScrollView, Text, Switch, Modal, Image, TouchableOpacity,Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { connect } from "react-redux";
 import _ from "lodash";
@@ -139,6 +139,31 @@ class UserProfile extends PureComponent {
     }
   };
 
+  //删除用户弹框
+  _deleteConsumer=()=>{
+    //Languages.deleteTips
+      Alert.alert('',Languages.deleteTip,[
+        { text: '取消' },
+        { text: '确定', onPress:()=>this._toDelConsumer()},
+      ])
+   }
+   _toDelConsumer=async ()=>{
+        const {userProfile,navigation}=this.props;
+        console.log(userProfile.user.id);
+        alert(Languages.deleteSuccess)
+        navigation.navigate("LoginScreen", { isLogout: true })
+        
+        //删除账号
+        // let res=await WPUserAPI.DeleteConsumer(userProfile.user.id);
+        // if(res.code){
+        //   alert(Languages.deleteDefault)
+        //   return;
+        // }
+        // alert(Languages.deleteSuccess)
+        // navigation.navigate("LoginScreen", { isLogout: true })
+        // console.log("点了确定")
+   }
+   
   /**
    * 
    * @param {Boolean} boolean
@@ -259,6 +284,15 @@ class UserProfile extends PureComponent {
               }
             })}
           </View>
+          {
+          //删除用户按钮
+          }
+          <TouchableOpacity onPress={this._deleteConsumer}>
+          {
+              userProfile.user&& 
+              <Text style={{textAlign:'center',color:'white',backgroundColor:'tomato',padding:15}}>{Languages.deleteButton}</Text>
+           }
+           </TouchableOpacity>
         </ScrollView>
 
         <ModalBox ref={(c) => (this.currencyPicker = c)}>
