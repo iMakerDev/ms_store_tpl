@@ -174,7 +174,11 @@ class Detail extends PureComponent {
       // eslint-disable-next-line no-alert
       alert(Languages.ProductLimitWaring.replace("{num}", limit));
     }
-    if (go) onViewCart();
+    if (go){
+      onViewCart();
+    } else{
+      toast(Languages.AddedtoCart);
+    }
   };
 
   addToWishList = (isAddWishList) => {

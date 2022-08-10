@@ -396,7 +396,6 @@ class Delivery extends PureComponent {
         get(customer, "billing.country") !== ""
           ? get(customer, "billing.country")
           : Config.DefaultCountry.countryCode;
-
       value = {
         first_name:
           customer.billing.first_name === ""
@@ -415,15 +414,9 @@ class Delivery extends PureComponent {
         state: customer.billing.state,
         postcode: customer.billing.postcode,
         phone: customer.billing.phone,
-        country,
       };
-    } else {
-      value.country =
-        selectedAddress?.country && selectedAddress?.country !== ""
-          ? get(selectedAddress, "country")
-          : Config.DefaultCountry.countryCode;
     }
-
+    value.country = Config.DefaultCountry.countryCode
     this.setState({ value });
   };
 

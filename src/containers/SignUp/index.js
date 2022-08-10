@@ -112,11 +112,12 @@ class SignUpScreen extends Component {
         this.setState({ isLoading: false });
         console.log('cookie');
         console.log(json);
-        login(customer, get(json, "cookie"));
-
-
+        // login(customer, get(json, "cookie"));
+ 
+        // console.log(login)
         signUpUserInfo(customer.id);
-
+        this.props.navigation.goBack();
+        toast("SignUp Success!")
         // alert(JSON.stringify(this.props))
         return;
       }
@@ -348,3 +349,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withTheme(SignUpScreen));
+
