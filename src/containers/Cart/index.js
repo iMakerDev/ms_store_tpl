@@ -224,11 +224,15 @@ renderCheckOut = () => {
 _onClosedModal = () => {
   // console.log(this.state.orderId);
   const { user, token } = this.props
-
+  console.log(this.state.orderId)
   if (this.state.orderId != null) {
     this.setState({ openModal: false });
     this.checkoutModal.close();
     this.props.finishOrder();
+    if (this.state.orderId && this.state.Mymess.length && this.getOrderState(this.state.orderId) !== "pending") {
+      this.updateCouponState(this.state.Mymess, this.state.user_id, this.state.orderId)
+    }
+    this.setState({orderId:null});
     this.tabCartView.goToPage(3);
   } else {
     this.tabCartView.goToPage(0);
@@ -335,11 +339,6 @@ getOrderState = async (id) => {
 finishOrder = () => {
   const { onFinishOrder } = this.props;
   this.props.finishOrder();
-
-
-  if (this.state.orderId && this.state.Mymess.length && this.getOrderState(this.state.orderId) !== "pending") {
-    this.updateCouponState(this.state.Mymess, this.state.user_id, this.state.orderId)
-  }
 
   onFinishOrder();
   BlockTimer.execute(() => {

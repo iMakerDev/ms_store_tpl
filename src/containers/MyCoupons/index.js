@@ -84,7 +84,7 @@ const MyCoupons = ({theme}) => {
                     <TouchableOpacity style={[styles.codeText,{ backgroundColor: item.pay_at ? "gray":'rgba(43,134,131,0.9)' ,}]} onPress={()=>{Clipboard.setString(item.code);toast('复制成功')}}>
                         <Text style={{ fontSize: 15, color: "#fff" }}>{Languages.ConversionCode}：</Text>
                         <Text style={{ fontSize: 15, color: "#fff", }}>{item.code}</Text>
-                        <Text style={{ fontSize: 15, color: '#fff' }}>{item.Gid}</Text>
+                        {/* <Text style={{ fontSize: 15, color: '#fff' }}>{item.Gid}</Text> */}
                     </TouchableOpacity>
                     {item.pay_at ?  <Text style={{position:'absolute',left:'-8%',top:10, transform: [{ rotate: "-45deg" }],backgroundColor:'#aba9a9',paddingHorizontal:28,paddingVertical:6}}>已使用</Text>:null}
                 </View>

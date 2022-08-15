@@ -197,6 +197,7 @@ class MyCart extends PureComponent {
             //确认个人订单状态
             let check=this.checkOrderState(this.state.coupon)
             console.log(check)
+            if(check) toast(Languages.CheckCouponDefault)
             !check&&this.props.getCouponAmount(this.state.coupon, couponList,totalPrice)
           }else toast(Languages.NoCoupon)
         }
