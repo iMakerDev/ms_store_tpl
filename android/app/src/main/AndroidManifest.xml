@@ -1,5 +1,9 @@
+
+         
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="{{new_item_android_package}}">
+    xmlns:tools="http://schemas.android.com/tools"
+     package="{{new_item_android_package}}">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -11,37 +15,57 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-      android:name=".MainApplication"
-      android:allowBackup="false"
-      android:hardwareAccelerated="true"
-      android:largeHeap="true"
-      android:label="@string/app_name"
-      android:icon="@mipmap/ic_launcher"
-      android:theme="@style/AppTheme"
-      android:supportsRtl="true">
+        android:name=".MainApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme"
+        android:supportsRtl="true">
         <activity android:name=".SplashActivity"
-                android:label="@string/app_name"
-                android:exported="true"
-                android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-                android:launchMode="singleTask"
-                android:windowSoftInputMode="adjustResize"
-                android:theme="@style/AppTheme">
+            android:label="@string/app_name"
+            android:exported="true"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" /> 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" android:screenOrientation="portrait" android:exported="true"/>
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
-    <meta-data
-        android:name="com.facebook.accountkit.ApplicationName"
-        android:value="@string/app_name" />
-    <meta-data
-        android:name="com.facebook.accountkit.ClientToken"
-        android:value="@string/ak_client_token" />
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false"/>
+        <activity
+            tools:node="merge"
+            tools:overrideLibrary="com.stripe.android.payments"
+            android:name="com.stripe.android.payments.StripeBrowserLauncherActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/StripeTransparentTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-<!--        Admob-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Must match `DefaultReturnUrl#value`. -->
+                <data
+                    android:host="payment_return_url"
+                    android:path="/com.msstore.poetichouse"
+                    android:scheme="stripesdk" />
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <meta-data
+            android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name" />
+        <meta-data
+            android:name="com.facebook.accountkit.ClientToken"
+            android:value="@string/ak_client_token" />
+
+        <!--        Admob-->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2101182411274198/4100506392"/>
