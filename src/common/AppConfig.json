@@ -1,36 +1,30 @@
 {
-  "HorizonLayout": [
-    {
-      "layout": "circleCategory"
+    "WooCommerce": {
+        "url": "https://mstore.io",
+        "consumerKey": "ck_b7594bc4391db4b56c635fe6da1072a53ca4535a",
+        "consumerSecret": "cs_980b9edb120e15bd2a8b668cacc734f7eca0ba40"
     },
-    {
-      "layout": "bannerHigh",
-      "tag": 166
+    "HorizonLayout": [
+        {
+            "imageBanner": "https://weddingringmake.com/wp-content/uploads/2023/01/e9566a_3197f2454aa54ebaaf856145922bd285_mv2.jpg",
+            "layout": "bannerImage",
+            "height": 160,
+            "imageMode": "cover",
+            "category": 18
+        },
+        {
+            "layout": "circleCategory"
+        },
+        {
+            "name": "featureProducts",
+            "image": "",
+            "layout": "card",
+            "category": 20
+        }
+    ],
+    "VerticalLayout": {
+        "name": "Recents",
+        "layout": "threeColumn"
     },
-    {
-      "imageBanner": "https://mstore.io/wp-content/uploads/2017/11/woman-large.png",
-      "layout": "bannerImage",
-      "height": 118,
-      "category": 176
-    },
-    {
-      "imageBanner": "https://mstore.io/wp-content/uploads/2017/06/man-large.png",
-      "layout": "bannerImage",
-      "height": 118,
-      "category": 106
-    },
-    {
-      "name": "RoseCrown",
-      "image": "",
-      "layout": "threeColumn",
-      "category": 170
-    },
-    {
-      "name": "WR",
-      "image": "",
-      "layout": "twoColumn",
-      "category": 117
-    }
-  ],
-  "MainColor": "#000000"
+    "MainColor": "#FF5722"
 }

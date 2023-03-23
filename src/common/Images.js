@@ -6,7 +6,7 @@
  * @apiDescription 项目图片
  */
 const Images = {
-  Logo: require("@images/logo1.jpg"),
+  // Logo: require("@images/logo1.jpg"),r
   defaultAvatar: require("@images/default_avatar.png"),
   categoryPlaceholder: require("@images/category_placehodler.png"),
   splashScreen: require("@images/splash_screen.png"),

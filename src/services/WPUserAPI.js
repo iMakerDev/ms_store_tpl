@@ -148,7 +148,7 @@ const WPUserAPI = {
   },
   //获取订单状态
   async GetOrderState(id){
-    const _url = `${url}/wp-json/wc/v3/orders/${id}?consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const _url = `${url}/wp-json/wc/v3/orders/${id}?consumer_key=${consumerKey}&consumer_secret=${consumerSecret}&parent=${parent_id}`;
     const resp = await request(_url, {
       method: "GET",
     });

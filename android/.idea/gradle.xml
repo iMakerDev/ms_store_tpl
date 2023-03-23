@@ -7,6 +7,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="Embedded JDK" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -27,7 +28,6 @@
             <option value="$PROJECT_DIR$/../node_modules/react-native-image-picker/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-linear-gradient/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-localization/android" />
-            <option value="$PROJECT_DIR$/../node_modules/react-native-onesignal/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-reanimated/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-restart/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-safe-area-context/android" />
@@ -37,6 +37,7 @@
             <option value="$PROJECT_DIR$/../node_modules/tipsi-stripe/android" />
           </set>
         </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

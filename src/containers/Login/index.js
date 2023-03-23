@@ -145,7 +145,6 @@ class LoginScreen extends PureComponent {
     if(!!this.state.isLoading)return;
 
     const { login, netInfo } = this.props;
-
     //  没有连接网络
     if (!netInfo.isConnected) {
       return toast(Languages.noConnection);
@@ -175,12 +174,13 @@ class LoginScreen extends PureComponent {
       this.stopAndToast(json.error || json.message);
     } else {
       if (has(json, "user.id")) {
-
+        
         let customers = await WooWorker.getCustomerById(get(json, "user.id"));
+        console.log(customers);
         customers = { ...customers, username, password };
         firebase.app().database().ref('/users/').once('value', (value) => {
             let userData = value.val()
-            // console.log(userData, 'userData')
+            console.log(userData, 'userData')
             if (userData[customers.id]) {
               if (userData[customers.id].avatar_url) {
                 customers.avatar_url = userData[customers.id].avatar_url

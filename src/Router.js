@@ -20,12 +20,7 @@ import MenuSide from "@components/LeftMenu/MenuOverlay";
 // import MenuSide from '@components/LeftMenu/MenuWide';
 
 import { toast, closeDrawer } from "./Omni";
-/**
- * @api  {组件} ./src/Router.js 路由
- * @apiName Router
- * @apiGroup 全局
- * @apiDescription 全局路由
- */
+
 class Router extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -82,7 +77,6 @@ class Router extends React.PureComponent {
     closeDrawer();
   };
 
-
   render() {
     const { loading } = this.state;
     const { isDarkTheme, introStatus, navigation, initializing } = this.props;
@@ -98,8 +92,6 @@ class Router extends React.PureComponent {
     // get theme based on dark or light mode
     const theme = isDarkTheme ? Theme.dark : Theme.light;
 
-
-
     return (
       <ThemeProvider theme={theme}>
         <MenuSide
@@ -113,7 +105,6 @@ class Router extends React.PureComponent {
               <StatusBar
                 barStyle={isDarkTheme ? "light-content" : "dark-content"}
                 animated
-                backgroundColor={isDarkTheme ?  '#222229':"#fff"}
                 hidden={Device.isIphoneX ? false : !Config.showStatusBar}
               />
               <MyToast />

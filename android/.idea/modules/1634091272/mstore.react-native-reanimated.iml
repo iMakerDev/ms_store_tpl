@@ -14,7 +14,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../node_modules/react-native-reanimated/android">
       <excludeFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-reanimated/android/.gradle" />

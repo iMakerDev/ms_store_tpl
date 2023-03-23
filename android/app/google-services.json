@@ -1,85 +1,49 @@
 {
   "project_info": {
-    "project_number": "1050703388790",
-    "firebase_url": "https://poetic-house-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "poetic-house",
-    "storage_bucket": "poetic-house.appspot.com"
+    "project_number": "944233539304",
+    "firebase_url": "https://hanah-e1648-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hanah-e1648",
+    "storage_bucket": "hanah-e1648.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1050703388790:android:8c72fd5f6118a622217f57",
+        "mobilesdk_app_id": "1:944233539304:android:9c90644707f1005dab8b5d",
         "android_client_info": {
-          "package_name": "com.PoeticHouse"
+          "package_name": "com.imaker.yfd.Hanah"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1050703388790-mfu8a2v75097ehlq68jmre4m4k30l7q6.apps.googleusercontent.com",
+          "client_id": "944233539304-ve32866goumdt5ro5e6dphm9bf2dqm1g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.PoeticHouse",
-            "certificate_hash": "d0fdbdcf09478a756003c5b7ccd58680383af056"
+            "package_name": "com.imaker.yfd.Hanah",
+            "certificate_hash": "f39f7fa7706408bc37c12ae7e50bf61b86ed609f"
           }
         },
         {
-          "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
+          "client_id": "944233539304-rpjjn0ahnttk33b815eua5hvphg8u3gr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDC1o5tP3XLiHQUsIhAzTD0AIHjs-mXkeo"
+          "current_key": "AIzaSyD39-ObVByNKwvz5VAqJaqLeOz-cpzbBWA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
+              "client_id": "944233539304-rpjjn0ahnttk33b815eua5hvphg8u3gr.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "1050703388790-0kprda9ud4m1p3ruu3gn6j49dh9hk0a4.apps.googleusercontent.com",
+              "client_id": "944233539304-gmk4sa6ga6d7lc5aa6l1pa8b4c6kmtom.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.inspireui.poetic.house"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1050703388790:android:5b3a0ec87b396130217f57",
-        "android_client_info": {
-          "package_name": "com.msstore.poetichouse"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDC1o5tP3XLiHQUsIhAzTD0AIHjs-mXkeo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1050703388790-28bqts673hbe8uf0uucrqqttr83di6gm.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1050703388790-0kprda9ud4m1p3ruu3gn6j49dh9hk0a4.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.inspireui.poetic.house"
+                "bundle_id": "com.imaker.yfd.Hanah"
               }
             }
           ]

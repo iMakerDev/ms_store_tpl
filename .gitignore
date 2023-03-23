@@ -24,15 +24,16 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
+build/
 release/
 *.aab
 *.apk
 .idea
-.gradle
+# .gradle
 local.properties
 *.iml
 gradlew
-google-services.json
+# google-services.json
 # node.js
 #
 #node_modules/
@@ -54,18 +55,18 @@ buck-out/
 */fastlane/Preview.html
 */fastlane/screenshots
 
+!debug.keystore
 
 Pods/
 # Bundle artifact
 *.jsbundle
 Podfile.lock
 
-android/gradlew
-android/app/src/main/java/com/msstore/poetichouse/MainActivity.java
-android/app/src/main/java/com/msstore/poetichouse/MainApplication.java
-android/app/src/main/java/com/msstore/poetichouse/SplashActivity.java
-android/app/build.gradle
-android/app/BUCK
-android/app/src/main/AndroidManifest.xml
+# android/gradlew
+# android/app/src/main/java/com/msstore/poetichouse/MainActivity.java
+# android/app/src/main/java/com/msstore/poetichouse/MainApplication.java
+# android/app/src/main/java/com/msstore/poetichouse/SplashActivity.java
+# android/app/build.gradle
+# android/app/src/main/AndroidManifest.xml
 
-
+node_modules

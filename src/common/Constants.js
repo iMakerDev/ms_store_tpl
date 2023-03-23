@@ -13,7 +13,7 @@ const Constants = {
   RTL: false, // default to set redux. Only use first time
   useReactotron: true,
 
-  Language: "tc", // ar, en. Default to set redux. Only use first time
+  Language: "en", // ar, en. Default to set redux. Only use first time
   fontFamily: "OpenSans",
   fontHeader: "Baloo",
   fontHeaderAndroid: "Baloo",
@@ -109,8 +109,8 @@ const Constants = {
   Languages: {
     en: "en",
     ar: "ar",
-    cn: "cn",
-    tc: "tc",
+    cn:"cn",
+    tc:"tc"
   },
 };
 

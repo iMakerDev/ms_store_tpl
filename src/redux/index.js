@@ -36,7 +36,7 @@ const config = {
     "payment",
     "sideMenu",
     "filters",
-    "carts"
+    "carts",
   ],
 };
 

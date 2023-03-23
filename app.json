@@ -1,4 +1,4 @@
 {
-  "name": "TPL",
-  "displayName": "TPL"
+  "name": "{{name}}",
+  "displayName": "{{name}}"
 }

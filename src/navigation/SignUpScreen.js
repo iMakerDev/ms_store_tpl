@@ -12,8 +12,8 @@ class SignUpScreen extends Component {
     return (
       <SignUp
         params={route.params}
-        onBackCart={() => navigation.navigate("Cart")}
         navigation={navigation}
+        onBackCart={() => navigation.navigate("Cart")}
       />
     );
   }
