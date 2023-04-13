@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from "react";
 import { View } from "react-native";
-import {ScrollableTabView} from "react-native-scrollable-tab-view";
+import { ScrollableTabView } from "react-native-scrollable-tab-view";
 import { connect } from "react-redux";
 import {
   PAYMENT_APPROVED_CODE,
@@ -12,7 +12,7 @@ import {
 import { PaypalPanel, StepIndicator, StripePanel } from "@components";
 import { WooWorker } from "api-ecommerce";
 import StripeAPI from "@services/StripeAPI";
-import stripe from "tipsi-stripe";
+import stripe from "@stripe/stripe-react-native";
 import { Languages, Images, Config } from "@common";
 import { BlockTimer, toast } from "@app/Omni";
 import Modal from "react-native-modalbox";
@@ -26,7 +26,7 @@ import Payment from "./Payment";
 
 import styles from "./styles";
 
-stripe.init({
+stripe.initStripe({
   publishableKey: Config.Stripe.publishableKey,
 });
 
@@ -91,7 +91,7 @@ class Cart extends PureComponent {
 
   onChangeTabIndex = (page) => {
     this.tabCartView && this.tabCartView.goToPage(page);
-  }; 
+  };
 
   renderPaypalLayout = () => {
     return (
