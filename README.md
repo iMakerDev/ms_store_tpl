@@ -1,4 +1,6 @@
-#### store-tpl
+#### 新版xcode补丁包
+ `yarn add patch-package postinstall-postinstall`
+ `npx patch-package react-native`
 
- > winter_986@qq.com
- > test
+
+ #### 修改oc文件项目名称

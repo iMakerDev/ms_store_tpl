@@ -41,7 +41,6 @@
 		99FA4C6832A745AF99535E86 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DBC963B5F1F49A581E149E9 /* FontAwesome5_Regular.ttf */; };
 		ACBB251923CD448FB0367D40 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70B32A8EAD124CF2975B91E2 /* Octicons.ttf */; };
 		BC0B7F1F62634378B11ED76B /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7E50337B6BF4272BEBDC30B /* SimpleLineIcons.ttf */; };
-		D50804D3ABF7467BB5D8054B /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2193CAD53BE4815A0F7D4DD /* AntDesign.ttf */; };
 		DD031F3C40C541ED9C2D6E04 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F7C7FC881154C96A4C5AEAE /* EvilIcons.ttf */; };
 		E032A98733484D96979DEBC9 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16A42B62F0AF44BEA6696BB6 /* FontAwesome5_Solid.ttf */; };
 		F629FAFE7BEA47CE9F5713C1 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD4D3645DA546F7A319A6B6 /* Feather.ttf */; };
